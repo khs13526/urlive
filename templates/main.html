@@ -74,10 +74,37 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe width="766" height="431" src="https://www.youtube.com/embed/F69_yzzCKpA"
+                            <div id="post-box">
+                                <div class="embed-responsive embed-responsive-16by9 m-3">
+                                    <iframe width="766" height="431" src="https://www.youtube.com/embed/F69_yzzCKpA"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen></iframe> <div class="post_box">
+                                </div>
+                                <h2>7 Years - Lukas Graham</h2>
+                                <div>이게 노래지</div>
+                                <div class="comment_box">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 100px">닉네임</th>
+                                            <th scope="col">댓글</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="comment">
+                                        <tr>
+                                            <td>영희</td>
+                                            <td>노래 넘 좋아여</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <textarea name="comments" id="comments"></textarea>
+                                        <input type="submit" value="댓글 남기기">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

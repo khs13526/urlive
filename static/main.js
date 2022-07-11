@@ -65,3 +65,61 @@ function post_list() {
             }
         })
 }
+
+  //댓글 보이기
+    function comment_listing() {
+        $.ajax({
+            type: 'GET',
+            url: '/main',
+            data: {},
+            success: function (response) {
+                let rows = response['lives_comment']
+                for (let i = 0; i < rows.length; i++) {
+                    let comment = rows[i]['comment']
+                    let username = rows[i]['username']
+                    let temp_html = ` <tr>
+                                        <td>${username}</td>
+                                        <td>${comment}</td>
+                                    </tr>`
+                    $('#comment').append(temp_html)
+                }
+            }
+        })
+    }
+
+      //포스트 창 열기 (수정 필요)
+    function post_page_open(int) {
+        $.ajax({
+            type: 'GET',
+            url: '/main',
+            data: {},
+            success: function (response) {
+                let url = [response]['url']
+                let song_name=[response]['songname']
+                let artist = [response]['artist']
+                let recommendation = [response]['recommendation']
+                let temp_html = ` <div class="embed-responsive embed-responsive-16by9 m-3">
+                                        <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//0wwvRNh0q6E' frameborder='0' allowfullscreen></iframe></div>
+                                    </div>
+                                    <h2>${song_name} - ${artist}</h2>
+                                    <div>${recommendation}</div>`
+                $('#post-box').append(temp_html)
+            }
+        })
+    }
+
+    //댓글 하기
+    function comment_posting() {
+        let comment = $('#comment').val()
+        let username = id
+        $.ajax({
+            type: 'POST',
+            url: '/main',
+            data: {username_give: username, comment_give: comment},
+            success: function (response) {
+                alert(response['msg'])
+                window.location.reload()
+            }
+        });
+    }
+
